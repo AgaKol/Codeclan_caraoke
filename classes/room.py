@@ -3,3 +3,4 @@ class Room:
         self.capacity = capacity
         self.entry_fee = entry_fee
         self.songs = []
+        self.guests_inside = []
