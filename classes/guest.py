@@ -5,3 +5,9 @@ class Guest:
         self.age = age
         self.favourite_song = favourite_song
         self.favourite_artist = favourite_artist
+
+    def cheer(self, song):
+        if song.title == self.favourite_song and song.singer == self.favourite_artist:
+            return "Whoo-hoo!"
+        elif song.title == self.favourite_song or song.singer == self.favourite_artist:
+            return "Whoo!"
