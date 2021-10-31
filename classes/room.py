@@ -22,3 +22,9 @@ class Room:
         if guest in self.guests_inside:
             self.guests_inside.remove(guest)
         return "Sorry, name not recognised."
+
+    def check_guest_tab(self, guest):
+        tab = self.entry_fee
+        for drink in guest.drinks_bought:
+            tab += drink.price
+        return tab

@@ -2,6 +2,7 @@ import unittest
 from classes.room import Room
 from classes.guest import Guest
 from classes.song import Song
+from classes.drink import Drink
 
 
 class RoomTest(unittest.TestCase):
@@ -12,6 +13,7 @@ class RoomTest(unittest.TestCase):
         self.guest2 = Guest("Prudence Robertson", 5, 17,
                             "Evil in your Eye", "Church of the Cosmic Skull")
         self.song = Song("Hell and You", "Amigo the Devil")
+        self.drink = Drink("Martini", 5)
 
     def test_room_has_capacity(self):
         self.assertEqual(15, self.room.capacity)
@@ -57,3 +59,7 @@ class RoomTest(unittest.TestCase):
         self.room.check_in(self.guest)
         message = "Sorry, name not recognised."
         self.assertEqual(message, self.room.check_out(self.guest2))
+
+    def test_can_check_guest_tab(self):
+        self.guest.drinks_bought.append(self.drink)
+        self.assertEqual(15, self.room.check_guest_tab(self.guest))
